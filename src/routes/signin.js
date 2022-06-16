@@ -1,4 +1,4 @@
-export default function Invoices() {
+export default function Signin() {
     return (
       <main>
         <h2>Sign in</h2>

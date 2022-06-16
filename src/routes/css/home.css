@@ -1,0 +1,11 @@
+.wrapper {
+    margin: 20px auto;
+    width: 600px;
+}
+
+.container {
+    background-color: greenyellow;
+    margin: 20px;
+    padding: 5px;
+}
+
