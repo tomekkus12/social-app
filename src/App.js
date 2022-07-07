@@ -4,7 +4,7 @@ import {
     Route
 } from "react-router-dom";
 import Login from "./routes/login";
-import SignIn from "./routes/signin";
+import SignUp from "./routes/signup";
 import InvalidPage from "./routes/invalidPage";
 import Home from "./routes/home";
 import "./App.css";
@@ -28,19 +28,19 @@ export default function App() {
 
     return (
         <div className="header">
-            <h1>Social App</h1>
+            <h1>React Social Application</h1>
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>{' '}
                     {!user && <li><Link to="/login"> Log In</Link></li>} {' '}
-                    {!user && <li><Link to="/signin"> Sign In</Link></li>}
+                    {!user && <li><Link to="/signup"> Sign Up</Link></li>}
                     {user && <li><Link to="/" onClick={logOut}>Log out</Link></li>}
                 </ul>
             </nav>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="login" element={<Login setUserCB={setUser} />} />
-                <Route path="signin" element={<SignIn />} />
+                <Route path="signup" element={<SignUp />} />
                 <Route path="*" element={<InvalidPage />} />
             </Routes>
         </div>

@@ -37,7 +37,7 @@ export default function Login(props) {
             <form onSubmit={tryToLogIn}>
                 <label>login:<br /><input type="text" name="login" value={login} onChange={e => setLogin(e.target.value)} /></label><br />
                 <label>password:<br /><input type="password" name="password" value={pass} onChange={e => setPass(e.target.value)} /></label><br /><br />
-                <button type="submit">Log In!</button>
+                <button type="submit">Submit</button>
             </form>
         </main>
     );

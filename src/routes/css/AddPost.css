@@ -1,0 +1,8 @@
+.AddPost {
+    text-align: center;
+}
+
+.AddPost textarea {
+    border-radius: 7px;
+    background-color: #ADFF2F;
+}

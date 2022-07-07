@@ -4,8 +4,20 @@
 }
 
 .container {
+    color: black;
     background-color: greenyellow;
     margin: 20px;
     padding: 5px;
+    border-radius: 7px;
 }
 
+button, input {
+    background-color: green;
+    border-radius: 5px;
+    color: greenyellow;
+}
+
+.postContent {
+    font-style: italic;
+    font-size: larger;
+}

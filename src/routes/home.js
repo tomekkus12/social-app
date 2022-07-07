@@ -3,6 +3,9 @@ import axios from 'axios';
 import './css/home.css';
 import AddPost from './AddPost';
 import Likes from './Likes';
+import ToFollow from './ToFollow';
+import Delete from './Delete';
+import Unfollow from './Unfollow';
 
 const dateTime = (dateInString) => {
     if (dateInString == null) {
@@ -24,7 +27,6 @@ export default function Home() {
     const getData = () => {
         axios.post(`https://akademia108.pl/api/social-app/post/latest`)
             .then(res => {
-                console.log(res.data);
                 setPosts(res.data);
             })
             .catch((error) => console.log(error));
@@ -63,14 +65,17 @@ export default function Home() {
     return (
         <main className="wrapper">
             {localStorage.getItem('user') ? <AddPost whenAdded={newerThan} /> : ''}
+            {localStorage.getItem('user') ? <ToFollow /> : ''}
             {posts.map(post => {
                 return (
-                    <div className="container">
-                        <div><img src={post.user.avatar_url} width="50" alt="user avatar"></img>{post.user.username + " id:" + post.id + " likes:" + post.likes.length}</div>
+                    <div className="container" key={post.id}>
+                        <div><img src={post.user.avatar_url} width="50" alt="user avatar"></img>{post.user.username}
+                        {localStorage.getItem('user') ? <Unfollow user={post.user} refresh={getData} /> : ''}
+                        <br />{" id:" + post.id + " likes:" + post.likes.length}</div>
                         <div>created:{dateTime(post.created_at)} edited:{dateTime(post.updated_at)}</div>
-                        <div>{post.content}</div>
-                        <Likes likeTable={post.likes} />
-
+                        <div className="postContent">{post.content}</div>
+                        <Likes likeTable={post.likes} postID={post.id} refresh={getData} />
+                        {localStorage.getItem('user') ? <Delete user={post.user} postID={post.id} refresh={getData} /> : ''}
                     </div>
                 )
             })}
