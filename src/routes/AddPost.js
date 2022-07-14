@@ -4,13 +4,12 @@ import './css/AddPost.css';
 
 export default function AddPost(props) {
 
-    const [postData, setPostData] = useState('Write a message ...');
+    const [postData, setPostData] = useState('');
 
     const sendPost = (event) => {
         event.preventDefault();
         axios.post('https://akademia108.pl/api/social-app/post/add', { "content": postData})
             .then((res) => {
-                console.log(res.data);
                 props.whenAdded();
             })
 

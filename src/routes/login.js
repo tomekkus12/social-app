@@ -11,9 +11,9 @@ export default function Login(props) {
     let navigate = useNavigate();
 
     const tryToLogIn = (event) => {
+        event.preventDefault();
         axios.post('https://akademia108.pl/api/social-app/user/login', { "username": login, "password": pass, "ttl": 3600 })
             .then((res) => {
-                console.log(res.data);
                 if (res.data.username) {
                     props.setUserCB(res.data);
                     localStorage.setItem('user', JSON.stringify(res.data));
@@ -26,7 +26,6 @@ export default function Login(props) {
             .catch((err) => {
                 console.log("AXIOS ERROR: ", err);
             })
-        event.preventDefault();
 
     }
 

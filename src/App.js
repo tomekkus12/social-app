@@ -3,10 +3,10 @@ import {
     Routes,
     Route
 } from "react-router-dom";
-import Login from "./routes/login";
-import SignUp from "./routes/signup";
-import InvalidPage from "./routes/invalidPage";
-import Home from "./routes/home";
+import Login from "./routes/Login";
+import SignUp from "./routes/Signup";
+import InvalidPage from "./routes/InvalidPage";
+import Home from "./routes/Home";
 import "./App.css";
 import { useState } from "react";
 import axios from 'axios';
@@ -20,7 +20,6 @@ export default function App() {
     const logOut = (event) => {
         event.preventDefault();
         axios.post('https://akademia108.pl/api/social-app/user/logout').then((res) => {
-            console.log(res.data);
             setUser(null);
             localStorage.removeItem('user');
         })

@@ -69,11 +69,11 @@ export default function Home() {
             {posts.map(post => {
                 return (
                     <div className="container" key={post.id}>
-                        <div><img src={post.user.avatar_url} width="50" alt="user avatar"></img>{post.user.username}
+                        <div><img src={post.user.avatar_url} alt="user avatar"></img>{post.user.username}
                         {localStorage.getItem('user') ? <Unfollow user={post.user} refresh={getData} /> : ''}
-                        <br />{" id:" + post.id + " likes:" + post.likes.length}</div>
-                        <div>created:{dateTime(post.created_at)} edited:{dateTime(post.updated_at)}</div>
+                        <div>created:{dateTime(post.created_at)}</div>
                         <div className="postContent">{post.content}</div>
+                        <br />{"likes:" + post.likes.length}</div>
                         <Likes likeTable={post.likes} postID={post.id} refresh={getData} />
                         {localStorage.getItem('user') ? <Delete user={post.user} postID={post.id} refresh={getData} /> : ''}
                     </div>

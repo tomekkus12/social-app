@@ -5,7 +5,6 @@ export default function Unfollow(props) {
     const unfollowUser = (who) => {
         axios.post('https://akademia108.pl/api/social-app/follows/disfollow', { "leader_id": who })
         .then((res) => {
-            console.log(res.data);
             props.refresh();
         })
 
@@ -16,7 +15,7 @@ export default function Unfollow(props) {
 
     return (
         <>
-            {(JSON.parse(window.localStorage.getItem('user')).id != props.user.id) ? <button onClick={() => unfollowUser(props.user.id)} >Unfollow</button> : ''}
+            {(JSON.parse(window.localStorage.getItem('user')).id !== props.user.id) ? <button onClick={() => unfollowUser(props.user.id)} >Unfollow</button> : ''}
         </>
     )
 

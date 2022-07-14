@@ -6,8 +6,8 @@ export default function Signup() {
 
     const [form, setForm] = useState({
         username: '',
-        email: 'www@d.pl',
-        password1: 'pass1',
+        email: '',
+        password1: '',
         password2: ''
     });
 
@@ -60,9 +60,7 @@ export default function Signup() {
             axios.post(
                 'http://akademia108.pl/api/social-app/user/signup', { "username": form.username, "email": form.email, "password": form.password1 })
             .then((req) => {
-        
-                console.log(req.data);  
-                // // your code :)      
+                 // // your code :)      
                 if (!req.data.signedup) {
                     const errorsArr = [];
                     errorsArr.push('Username already taken!');

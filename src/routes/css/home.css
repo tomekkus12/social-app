@@ -21,3 +21,7 @@ button, input {
     font-style: italic;
     font-size: larger;
 }
+
+.wrapper img {
+    width: 50px;
+}

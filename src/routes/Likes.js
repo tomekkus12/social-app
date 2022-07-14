@@ -22,7 +22,6 @@ export default function Likes(props) {
             setLikeStatus('unlike');
             axios.post('https://akademia108.pl/api/social-app/post/like', { "post_id": props.postID })
                 .then((res) => {
-                    console.log(res.data);
                 })
 
                 .catch((err) => {
@@ -32,7 +31,6 @@ export default function Likes(props) {
             setLikeStatus('like');
             axios.post('https://akademia108.pl/api/social-app/post/dislike', { "post_id": props.postID })
                 .then((res) => {
-                    console.log(res.data);
                 })
 
                 .catch((err) => {
